@@ -2,8 +2,9 @@ import { Text, View, Image, ScrollView, Pressable } from "react-native";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import UserLogo from "../../assets/user.png";
-import OfferCard from "../components/OfferCard";
+//import UserLogo from "../../assets/user.png";
+//import OfferCard from "../components/OfferCard";
+import Slider from "../components/Slider";
 import NewArrivalsCard from "../components/NewArrivalsCard";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AuthenticationModal from "../components/AuthenticationModal";
@@ -38,7 +39,7 @@ const Home = ({ navigation }) => {
           {!isLoggedIn &&(
             <Pressable onPress={() => setModalVisible(!modalVisible)} className="flex-row items-center justify-center border border-slate-400 rounded-full ">
               <Image
-                source={UserLogo}
+                source={{uri: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/393626857_924553462528338_5008131638680354205_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FOZ8QHtc7SUAX9pdAsQ&_nc_ht=scontent.fhan14-1.fna&cb_e2o_trans=t&oh=00_AfDwczU-2mN-1ittsSa0gyEMz8QVFTmwYyWzHfWxWI6FPg&oe=654C668C'}}
                 style={{
                   height: 40,
                   width: 40,
@@ -46,25 +47,25 @@ const Home = ({ navigation }) => {
                   borderRadius: 50,
                 }}
                 />
-                <Text className="font-semibold py-2 pr-4 pl-2">Login</Text>
+                <Text className="font-semibold py-2 pr-4 pl-2">Đăng nhập</Text>
             </Pressable>
           )}
         </View>
 
         <View className="mt-6 px-5">
-          <Text className="font-bold text-2xl">Welcome, <Text className="font-bold text-slate-500">{currentUser?.name}</Text></Text>
-          <Text className="font-semibold text-xl text-gray-500">
-            Our Fashions App
+          {/* <Text className="font-bold text-2xl"> <Text className="font-bold text-slate-500">{currentUser?.name}</Text></Text> */}
+          <Text className="font-semibold text-xl text-black-500">
+            Maverik Studio App
           </Text>
         </View>
 
-        <View className="mt-6 px-5">
-          <View className="flex-row bg-gray-200 p-2 px-3 items-center rounded-3xl">
+        <View className="mt-7 px-5">
+          <View className="flex-row bg-gray-200 p-2 px-3 items-center rounded-xl">
             <View className="">
-              <MaterialIcons name="search" size={24} color={"#111"} />
+              <MaterialIcons name="search" size={29} color={"#111"} />
             </View>
             <TextInput
-              placeholder="Search..."
+              placeholder="Tìm kiếm..."
               placeholderTextColor={"#666666"}
               className="px-2"
             />
@@ -72,13 +73,13 @@ const Home = ({ navigation }) => {
         </View>
 
         <View className="mt-6 p-5">
-          <OfferCard />
+          <Slider />
         </View>
         <View className="mt-4">
           <View className="flex-row justify-between items-center px-5">
-            <Text className="text-lg font-extrabold">New Arrivals</Text>
+            <Text className="text-lg font-extrabold">Sản phẩm mới</Text>
             <Pressable onPress={() => navigation.navigate("productlistscreen")}>
-              <Text className="text-xs text-gray-500">View All</Text>
+              <Text className="text-xs text-gray-500">Xem tất cả</Text>
             </Pressable>
           </View>
           <ScrollView

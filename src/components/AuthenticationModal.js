@@ -70,7 +70,7 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
       >
         {type === "login" ? (
           <Pressable onPress={()=>setModalVisible(false)} className="flex-1 justify-center items-center bg-black/[0.5]">
-            <View className={`w-[80%] p-6 bg-white rounded-lg z-10`}>
+            <View className={`w-[80%] p-11 bg-white rounded-lg z-10`}>
               <Text className="font-bold mb-2">Email:</Text>
               <TextInput
                 className="border border-slate-300 px-3 py-2"
@@ -78,7 +78,7 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
                 onChangeText={setEmail}
                 keyboardType="email-address"
               />
-              <Text className="font-bold mt-4 mb-2">Password:</Text>
+              <Text className="font-bold mt-4 mb-2">Mật khẩu:</Text>
               <TextInput
                 className="border border-slate-300 px-3 py-2"
                 value={password}
@@ -91,13 +91,13 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
                 onPress={handleLogin}
               >
                 <Text className="text-white font-semibold text-center">
-                  Login
+                  Đăng nhập
                 </Text>
               </TouchableOpacity>
               <View className="flex-row justify-center items-center mt-4">
-                <Text className="text-slate-500">Not a User?</Text>
+                <Text className="text-slate-500">Bạn chưa có tài khoản?</Text>
                 <Pressable onPress={() => setType("register")}>
-                  <Text className="font-bold"> Register</Text>
+                  <Text className="font-bold">Đăng ký</Text>
                 </Pressable>
               </View>
               {loading
@@ -110,20 +110,20 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
         ) : (
           <Pressable onPress={()=>setModalVisible(false)} className="flex-1 justify-center items-center bg-black/[0.5]">
             <View className={`w-[80%] p-6 bg-white`}>
-              <Text className="font-bold mb-2">Name:</Text>
+              <Text className="font-bold mb-2">Họ tên:</Text>
               <TextInput
                 className="border border-slate-300 px-3 py-2"
                 value={name}
                 onChangeText={setName}
               />
-              <Text className="font-bold mb-2">Email:</Text>
+              <Text className="font-bold mb-2 mt-3">Email:</Text>
               <TextInput
-                className="border border-slate-300 px-3 py-2"
+                className="border border-slate-300 px-3 py-2 "
                 value={email}
                 onChangeText={setEmail}
                 keyboardType="email-address"
               />
-              <Text className="font-bold mb-2">Password:</Text>
+              <Text className="font-bold mb-2 mt-3">Mật khẩu:</Text>
               <TextInput
                 className="border border-slate-300 px-3 py-2"
                 value={password}
@@ -136,14 +136,14 @@ const AuthenticationModal = ({ modalVisible, setModalVisible }) => {
                 onPress={handleRegister}
               >
                 <Text className="text-white font-semibold text-center">
-                  Register
+                  Đăng ký
                 </Text>
               </TouchableOpacity>
 
               <View className="flex-row justify-center items-center mt-4">
-                <Text className="text-slate-500">Already a User?</Text>
+                <Text className="text-slate-500">Bạn đã có tài khoản?</Text>
                 <Pressable onPress={() => setType("login")}>
-                  <Text className="font-bold"> Login</Text>
+                  <Text className="font-bold"> Đăng nhập</Text>
                 </Pressable>
               </View>
               {/* {loading
